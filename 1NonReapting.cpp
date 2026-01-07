@@ -14,7 +14,13 @@ for(char ch:s){
 return '#';
 }
 int main(){
-string s = "aaabbc";
-cout<<FirstNonRepeating(s);
+string s = "aaabbcc";
+char ans = FirstNonRepeating(s);
+if(ans=='#'){
+  cout<<"No non-reapting chracter found";
+}
+else{
+  cout<<ans;
+}
 return 0;
 }
