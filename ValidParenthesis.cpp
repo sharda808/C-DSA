@@ -4,7 +4,7 @@ using namespace std;
 bool isParenthesis(string s)
 {
   stack<char> st;
-  for (int i = 0; i < s.size(); i++)
+  for (size_t i = 0; i < s.size(); i++)
   {
     if (s[i] == '(' || s[i] == '{' || s[i] == '[') // Opening
     {
