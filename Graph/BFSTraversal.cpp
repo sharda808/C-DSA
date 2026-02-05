@@ -12,9 +12,12 @@ void buildGraph(int n, vector<vector<int>>edges, vector<int>adj[]){
 }
 void bfs(int start, int n, vector<int>adj[]){
   vector<bool>vis(n,false);
-queue<int>q;
+  queue<int>q;
 vis[start] = true;
 q.push(start);
+
+
+
 while(!q.empty()){
   int node = q.front();
   q.pop();
@@ -27,6 +30,7 @@ while(!q.empty()){
   }
 }
 }
+
 int main(){
     int  n= 5 ;// no of nodes/vertices
   vector<vector<int>> edges = {{0,1},{0,2},{1,3},{3,4}};
