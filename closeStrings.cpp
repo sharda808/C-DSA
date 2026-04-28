@@ -1,0 +1,42 @@
+#include<iostream>
+#include<string>
+#include<unordered_map>
+#include<vector>
+#include<algorithm>
+using namespace std;
+bool closeStrings(string word1,string word2){
+  if(word1.size() != word2.size()){
+    return false;
+  }
+unordered_map<int,int>mp1,mp2;
+for(int i=0; i<word1.size(); i++){
+  mp1[word1[i]]++;
+  mp2[word2[i]]++;
+}
+for(auto it:mp1){
+  if(mp2.find(it.first) == mp2.end()){
+    return false;
+  }
+}
+for(auto it:mp2){
+  if(mp1.find(it.first) == mp1.end()){
+    return false;
+  }
+}
+vector<int>freq1,freq2;
+for(auto it:mp1){
+  freq1.push_back(it.second);
+}
+for(auto it:mp2){
+  freq2.push_back(it.second);
+}
+sort(freq1.begin(),freq1.end());
+sort(freq2.begin(),freq2.end());
+return freq1 == freq2;
+}
+int main(){
+  string word1 = "a";
+  string word2 = "aa";
+  cout<<closeStrings(word1,word2);
+  return 0;
+}
